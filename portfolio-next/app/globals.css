@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: oklch(72% 0.18 200 / 0.4);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0d0d0f; }
+::-webkit-scrollbar-thumb { background: #1c1c22; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #2a2a32; }
+
+/* ─── Marquee ─── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Animated mesh gradient ─── */
+@keyframes mesh-shift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(2%, -3%, 0) scale(1.05); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+.mesh-blob { animation: mesh-shift 14s ease-in-out infinite; will-change: transform; }
+.mesh-blob.delay-1 { animation-delay: -4s; animation-duration: 18s; }
+.mesh-blob.delay-2 { animation-delay: -9s; animation-duration: 22s; }
+
+/* ─── Hero name shimmer ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    100deg,
+    oklch(72% 0.18 200) 0%,
+    #fff 25%,
+    oklch(72% 0.18 200) 50%,
+    #fff 75%,
+    oklch(72% 0.18 200) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* ─── Cursor spotlight (desktop only) ─── */
+.spotlight::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    oklch(72% 0.18 200 / 0.06),
+    transparent 60%
+  );
+  transition: opacity 0.3s;
+}
+@media (max-width: 768px) {
+  .spotlight::before { display: none; }
+}
+
+/* ─── Tilt card ─── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ─── Project card glow ─── */
+.proj-glow {
+  position: relative;
+  isolation: isolate;
+}
+.proj-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent 30%, var(--proj, oklch(72% 0.18 200)) 50%, transparent 70%);
+  background-size: 200% 200%;
+  background-position: 100% 100%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s, background-position 1.2s;
+  pointer-events: none;
+}
+.proj-glow:hover::after {
+  opacity: 1;
+  background-position: 0% 0%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none; }
+}
