@@ -101,16 +101,17 @@ export function Contact() {
 
         <Reveal>
           <h2 className="mb-6 text-center text-[clamp(48px,9vw,120px)] font-bold leading-[0.95] tracking-[-0.04em]">
-            Let&apos;s Build
+            Let&apos;s build
             <br />
-            <span className="shimmer-text">Together.</span>
+            <span className="shimmer-text">something great.</span>
           </h2>
         </Reveal>
 
         <Reveal>
-          <p className="mx-auto mb-12 max-w-xl text-center text-base leading-[1.7] text-muted md:text-lg">
-            Have a Flutter project, an idea you want to validate, or a freelance gig?
-            I&apos;m one click away.
+          <p className="mx-auto mb-12 max-w-2xl text-center text-base leading-[1.7] text-muted md:text-lg">
+            Have an app idea, a half-built MVP, or an existing app that needs to
+            be faster, cleaner or production-ready? Tell me what you&apos;re working
+            on — I usually reply within 24 hours.
           </p>
         </Reveal>
 

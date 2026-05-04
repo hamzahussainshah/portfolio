@@ -14,17 +14,75 @@ export type Skill = {
   icon: string;
   name: string;
   desc: string;
-  level: number;
 };
 
-export const skills: Skill[] = [
-  { icon: "⚡", name: "Flutter", desc: "Pixel-perfect cross-platform apps for iOS & Android with Stacked CLI architecture.", level: 95 },
-  { icon: "⚛", name: "React Native", desc: "Native mobile experiences using JavaScript with React Native ecosystem.", level: 80 },
-  { icon: "🌐", name: "React / Web", desc: "Modern web applications with React, responsive design and clean UX.", level: 78 },
-  { icon: "🔥", name: "Firebase", desc: "Firestore, Auth, Cloud Functions, Storage — robust serverless backend services.", level: 88 },
-  { icon: "🏗", name: "Stacked CLI", desc: "Clean MVVM architecture for scalable, testable Flutter codebases.", level: 90 },
-  { icon: "🎨", name: "UI / UX Design", desc: "Figma to code — crafting beautiful interfaces with attention to detail.", level: 82 },
+export type SkillGroup = {
+  id: string;
+  label: string;
+  caption: string;
+  items: Skill[];
+};
+
+export const skillGroups: SkillGroup[] = [
+  {
+    id: "mobile",
+    label: "Mobile Development",
+    caption: "Cross-platform iOS & Android — built to scale.",
+    items: [
+      { icon: "⚡", name: "Flutter", desc: "Pixel-perfect cross-platform apps with Stacked CLI / MVVM architecture." },
+      { icon: "⚛", name: "React Native", desc: "Native iOS & Android experiences from a single JavaScript codebase." },
+      { icon: "🏗", name: "Clean Architecture", desc: "MVVM, dependency injection and testable, scalable code structure." },
+      { icon: "📱", name: "Native iOS / Android", desc: "Platform channels, native modules and store-ready release builds." },
+    ],
+  },
+  {
+    id: "cloud",
+    label: "Cloud & Backend",
+    caption: "Serverless, real-time, production-grade infrastructure.",
+    items: [
+      { icon: "🔥", name: "Firebase Suite", desc: "Auth, Firestore, Cloud Functions, FCM, Storage — full backend in days, not months." },
+      { icon: "☁️", name: "Cloud Integrations", desc: "REST APIs, serverless functions and 3rd-party service orchestration." },
+      { icon: "📡", name: "Real-time Systems", desc: "Live data sync, presence and chat using Firestore listeners & WebSockets." },
+      { icon: "🧱", name: "Scalable Architecture", desc: "Backend design that handles growth without painful rewrites later." },
+    ],
+  },
+  {
+    id: "integrations",
+    label: "SDKs & Integrations",
+    caption: "Plug-in the services your product actually needs.",
+    items: [
+      { icon: "🔐", name: "Social Auth & SDKs", desc: "Google, Facebook, Apple, TikTok login & sharing flows." },
+      { icon: "💳", name: "Payments", desc: "Stripe, in-app purchases (App Store / Play Billing) and subscription handling." },
+      { icon: "📊", name: "Analytics", desc: "Firebase Analytics, Mixpanel — funnels, retention and event tracking." },
+      { icon: "🔔", name: "Push Notifications", desc: "FCM, OneSignal — segmented campaigns and silent background pushes." },
+    ],
+  },
+  {
+    id: "performance",
+    label: "Optimization & Performance",
+    caption: "Fix the slow, the broken and the tangled.",
+    items: [
+      { icon: "🚀", name: "Performance Tuning", desc: "Cut startup time, smooth jank, shrink bundle size, profile builds." },
+      { icon: "🧹", name: "Refactoring", desc: "Untangle messy or AI-generated code into something maintainable." },
+      { icon: "🐛", name: "Production Debugging", desc: "Track down crashes, race conditions and elusive prod-only bugs." },
+      { icon: "📈", name: "Scalability Audits", desc: "Review architecture before traffic grows — not after it breaks." },
+    ],
+  },
+  {
+    id: "speed",
+    label: "Rapid Development",
+    caption: "Ship fast without shipping a mess.",
+    items: [
+      { icon: "⏱", name: "MVP in Weeks", desc: "From idea to App Store / Play Store in 2–6 weeks, fully functional." },
+      { icon: "🤖", name: "AI-Assisted Workflow", desc: "Use AI tools to move faster — reviewed and hardened by a real engineer." },
+      { icon: "🧩", name: "Prototype → Production", desc: "Take Figma designs or rough demos and turn them into shippable apps." },
+      { icon: "🎨", name: "UI / UX from Figma", desc: "Pixel-perfect implementation with attention to spacing, motion and feel." },
+    ],
+  },
 ];
+
+// Flat list kept for backwards compatibility with anything else that imports it.
+export const skills: Skill[] = skillGroups.flatMap((g) => g.items);
 
 export type ShowcaseKind = "phones" | "wide" | "single";
 export type AccentKey = "teal" | "orange" | "purple" | "pink" | "red" | "yellow";
@@ -181,8 +239,43 @@ export const highlights = [
 ];
 
 export const navLinks = [
+  { href: "#services", label: "Services" },
   { href: "#projects", label: "Work" },
   { href: "#skills", label: "Skills" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
+];
+
+export type Service = {
+  icon: string;
+  title: string;
+  desc: string;
+};
+
+export const services: Service[] = [
+  {
+    icon: "🛠",
+    title: "Improve & Rescue Existing Apps",
+    desc: "I take over half-built, AI-generated or early-stage apps and turn them into stable products clients can actually ship and grow.",
+  },
+  {
+    icon: "⚡",
+    title: "Performance & Bug Fixes",
+    desc: "Slow screens, frame drops, mysterious prod crashes, broken builds — I find the root cause and fix it for good, not just patch it.",
+  },
+  {
+    icon: "🚀",
+    title: "MVP → Production-Ready",
+    desc: "From Figma or a rough prototype to App Store and Play Store in weeks — with proper auth, analytics, payments and real backend.",
+  },
+  {
+    icon: "🧱",
+    title: "Clean, Scalable Code",
+    desc: "MVVM architecture, typed APIs, modular features. Code your next developer (or future you) won't dread opening.",
+  },
+  {
+    icon: "📦",
+    title: "Fast, Reliable Delivery",
+    desc: "Honest estimates, weekly demos and clear handoff. No silent weeks, no half-finished work, no surprise scope creep.",
+  },
 ];
