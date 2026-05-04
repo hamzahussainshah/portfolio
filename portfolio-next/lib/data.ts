@@ -58,6 +58,17 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "ai",
+    label: "AI & Modern Features",
+    caption: "The features clients are actually paying for in 2026.",
+    items: [
+      { icon: "🤖", name: "LLM Integration", desc: "OpenAI, Anthropic Claude and Gemini APIs wired into mobile apps with streaming, function calling & memory." },
+      { icon: "🗣", name: "Voice & Speech", desc: "Speech-to-text, text-to-speech and voice agents — hands-free flows users actually enjoy." },
+      { icon: "🖼", name: "AI Image & Vision", desc: "Image generation, background removal, OCR and on-device vision with TensorFlow Lite / ML Kit." },
+      { icon: "💬", name: "Chat & Real-time", desc: "AI chatbots, smart assistants and live messaging powered by Firestore and WebSockets." },
+    ],
+  },
+  {
     id: "performance",
     label: "Optimization & Performance",
     caption: "Fix the slow, the broken and the tangled.",
@@ -223,16 +234,17 @@ export const projects: Project[] = [
 ];
 
 export const stats = [
-  { num: "8", suffix: "+", label: "Apps Shipped" },
-  { num: "3", suffix: "+", label: "Years Experience" },
+  { num: "20", suffix: "+", label: "Apps Shipped" },
+  { num: "4", suffix: "+", label: "Years Experience" },
   { num: "Flutter", suffix: " & React", label: "Core Stack" },
-  { num: "Firebase", suffix: ".", label: "Backend Services" },
+  { num: "Firebase", suffix: " · AI", label: "Backend & Integrations" },
 ];
 
 export const highlights = [
   { label: "Primary Stack", value: "Flutter · Dart · Stacked CLI" },
   { label: "Mobile Platforms", value: "iOS · Android · React Native" },
   { label: "Backend", value: "Firebase · Firestore · Cloud Functions" },
+  { label: "AI Integrations", value: "OpenAI · Claude · Voice & Vision APIs" },
   { label: "Web", value: "React · Next.js · TypeScript" },
   { label: "Architecture", value: "MVVM · Clean Code · REST APIs" },
   { label: "Tools", value: "Git · Figma · VS Code · Android Studio" },
@@ -252,30 +264,60 @@ export type Service = {
   desc: string;
 };
 
+export const integrations: { label: string; group: string }[] = [
+  { label: "Google Sign-In", group: "Auth" },
+  { label: "Apple Sign-In", group: "Auth" },
+  { label: "Facebook Login", group: "Auth" },
+  { label: "TikTok Login", group: "Auth" },
+  { label: "Phone OTP", group: "Auth" },
+  { label: "Stripe", group: "Payments" },
+  { label: "RevenueCat", group: "Payments" },
+  { label: "App Store IAP", group: "Payments" },
+  { label: "Play Billing", group: "Payments" },
+  { label: "OpenAI", group: "AI" },
+  { label: "Claude API", group: "AI" },
+  { label: "Gemini", group: "AI" },
+  { label: "Firebase", group: "Backend" },
+  { label: "Firestore", group: "Backend" },
+  { label: "Cloud Functions", group: "Backend" },
+  { label: "FCM Push", group: "Engagement" },
+  { label: "OneSignal", group: "Engagement" },
+  { label: "Branch / Deep Links", group: "Engagement" },
+  { label: "Stream Chat", group: "Real-time" },
+  { label: "Agora", group: "Real-time" },
+  { label: "Mixpanel", group: "Analytics" },
+  { label: "Firebase Analytics", group: "Analytics" },
+];
+
 export const services: Service[] = [
   {
-    icon: "🛠",
-    title: "Improve & Rescue Existing Apps",
-    desc: "I take over half-built, AI-generated or early-stage apps and turn them into stable products clients can actually ship and grow.",
+    icon: "💰",
+    title: "App Launch & Monetization",
+    desc: "Submit to App Store & Play Store, set up subscriptions and in-app purchases with RevenueCat / StoreKit / Play Billing, integrate Stripe — get your app live and earning, not stuck in review.",
   },
   {
-    icon: "⚡",
-    title: "Performance & Bug Fixes",
-    desc: "Slow screens, frame drops, mysterious prod crashes, broken builds — I find the root cause and fix it for good, not just patch it.",
+    icon: "🛠",
+    title: "Rescue & Improve Existing Apps",
+    desc: "I take over half-built, AI-generated or early-stage apps and turn them into stable, shippable products. Untangle messy code, fix architecture, get back on track.",
   },
   {
     icon: "🚀",
     title: "MVP → Production-Ready",
-    desc: "From Figma or a rough prototype to App Store and Play Store in weeks — with proper auth, analytics, payments and real backend.",
+    desc: "From Figma or rough prototype to App Store and Play Store in weeks — proper auth, analytics, payments, push notifications and a real Firebase backend.",
   },
   {
-    icon: "🧱",
-    title: "Clean, Scalable Code",
-    desc: "MVVM architecture, typed APIs, modular features. Code your next developer (or future you) won't dread opening.",
+    icon: "💬",
+    title: "Real-Time & Engagement",
+    desc: "Live chat, video calls, group messaging, push notifications, deep links and presence — built with Firestore, WebSockets, FCM and Stream / Agora when you need to scale.",
   },
   {
-    icon: "📦",
-    title: "Fast, Reliable Delivery",
-    desc: "Honest estimates, weekly demos and clear handoff. No silent weeks, no half-finished work, no surprise scope creep.",
+    icon: "🤖",
+    title: "AI Features That Actually Work",
+    desc: "OpenAI / Claude / Gemini chatbots with streaming and memory, voice assistants, OCR, image generation — wired into mobile UX with proper rate-limiting, caching and cost control.",
+  },
+  {
+    icon: "⚡",
+    title: "Performance & Bug Fixes",
+    desc: "Slow screens, frame drops, prod-only crashes, broken builds, failing release pipelines — I find the root cause and fix it for good, not just patch it.",
   },
 ];

@@ -1,6 +1,7 @@
 import { services } from "@/lib/data";
 import { SectionHeader } from "./SectionHeader";
 import { Reveal } from "./Reveal";
+import { IntegrationStrip } from "./IntegrationStrip";
 
 export function Services() {
   return (
@@ -10,6 +11,8 @@ export function Services() {
         title="What I Do Best"
         subtitle="The work I&apos;m hired for most often — and what I genuinely enjoy doing."
       />
+
+      <IntegrationStrip />
 
       <ul className="grid grid-cols-1 gap-px border border-white/[0.07] bg-white/[0.07] md:grid-cols-2 xl:grid-cols-3">
         {services.map((s, i) => (

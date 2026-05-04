@@ -54,10 +54,10 @@ export function Hero() {
         </p>
 
         <p className="mb-12 max-w-xl text-base leading-[1.75] text-muted opacity-0 animate-fade-up [animation-delay:650ms] md:text-[17px]">
-          Passionate about designing and creating Flutter applications. With
-          extensive experience in Flutter and expertise in Stacked CLI, I write
-          clean, readable, and maintainable code — leveraging Firebase for
-          robust backend services.
+          4+ years building production Flutter and React Native apps —{" "}
+          <span className="text-white">20+ shipped</span> across FinTech, Health,
+          Automotive and AI. I take ideas, half-built MVPs and broken codebases
+          and turn them into apps that ship and scale.
         </p>
 
         <div className="flex flex-wrap gap-4 opacity-0 animate-fade-up [animation-delay:800ms]">

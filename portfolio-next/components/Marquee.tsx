@@ -1,16 +1,20 @@
 const TECH = [
   "Flutter",
   "Dart",
-  "React",
   "React Native",
+  "React",
   "Next.js",
   "TypeScript",
   "Firebase",
-  "Stacked CLI",
   "Firestore",
   "Cloud Functions",
+  "OpenAI",
+  "Claude API",
+  "Stripe",
+  "Stacked CLI",
+  "FCM",
+  "Mixpanel",
   "Figma",
-  "Git",
 ];
 
 export function Marquee() {
